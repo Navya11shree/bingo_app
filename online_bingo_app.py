@@ -251,156 +251,191 @@ from datetime import datetime
 st.set_page_config(
     page_title="Friday Fun Remote Work Bingo! 🎉",
     page_icon="🎯",
-    layout="wide",
-    initial_sidebar_state="collapsed"
+    layout="wide"
 )
 
-# Custom CSS for cool UI/UX
+# Modern CSS styling
 st.markdown("""
 <style>
-/* Import cool font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-/* Global styles */
-.stApp {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: 'Poppins', sans-serif;
-}
-
-/* Header styles */
-.main-header {
-    text-align: center;
-    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradient 3s ease infinite;
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Card container */
-.game-container {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    margin: 2rem 0;
-}
-
-/* Player info section */
-.player-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-/* Bingo grid styling */
-.bingo-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Stats container */
-.stats-container {
-    background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin: 2rem 0;
-    text-align: center;
-}
-
-/* Celebration styles */
-.celebration {
-    background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347);
-    background-size: 400% 400%;
-    animation: gradient 2s ease infinite;
-    color: white;
-    padding: 2rem;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
-    margin: 2rem 0;
-}
-
-/* Button animations */
-.stButton > button {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 10px;
-    border: none;
-    font-weight: 500;
-}
-
-.stButton > button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* Input styling */
-.stTextInput > div > div > input {
-    border-radius: 10px;
-    border: 2px solid #e1e5e9;
-    transition: all 0.3s ease;
-}
-
-.stTextInput > div > div > input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-/* Progress bar */
-.progress-container {
-    background: rgba(255,255,255,0.2);
-    border-radius: 10px;
-    padding: 10px;
-    margin: 20px 0;
-}
-
-/* Floating elements */
-.floating {
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-/* Pulse animation for important elements */
-.pulse {
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Hide default streamlit elements */
-.stDeployButton {display:none;}
-footer {visibility: hidden;}
-.stDecoration {display:none;}
-
+    /* Import modern font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    
+    /* Main app styling */
+    .main > div {
+        padding-top: 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+    }
+    
+    /* Custom font for entire app */
+    html, body, [class*="css"] {
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Header styling */
+    .main-header {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+    
+    /* Title styling */
+    .stTitle {
+        color: white !important;
+        text-align: center;
+        font-weight: 700;
+        font-size: 3rem !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        margin-bottom: 0 !important;
+    }
+    
+    /* Subtitle styling */
+    .subtitle {
+        color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+    }
+    
+    /* Card container */
+    .bingo-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Button styling */
+    .stButton > button {
+        background: linear-gradient(45deg, #ff6b6b, #feca57) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 15px !important;
+        font-weight: 600 !important;
+        font-family: 'Poppins', sans-serif !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+        height: 3rem !important;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Primary button special styling */
+    div[data-testid="stButton"] button[kind="primary"] {
+        background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    }
+    
+    /* Bingo cell buttons */
+    div[data-testid="column"] .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 12px !important;
+        font-weight: 500 !important;
+        font-size: 0.85rem !important;
+        padding: 1rem !important;
+        min-height: 100px !important;
+        width: 100% !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Marked cells */
+    .marked-cell {
+        background: linear-gradient(45deg, #48CAE4, #023E8A) !important;
+        box-shadow: 0 0 20px rgba(72, 202, 228, 0.5) !important;
+        animation: pulse 2s infinite !important;
+    }
+    
+    @keyframes pulse {
+        0% { box-shadow: 0 0 20px rgba(72, 202, 228, 0.5); }
+        50% { box-shadow: 0 0 30px rgba(72, 202, 228, 0.8); }
+        100% { box-shadow: 0 0 20px rgba(72, 202, 228, 0.5); }
+    }
+    
+    /* Free space special styling */
+    .free-space {
+        background: linear-gradient(45deg, #ffd700, #ff8c00) !important;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6) !important;
+    }
+    
+    /* Input styling */
+    .stTextInput > div > div > input {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 10px !important;
+        font-family: 'Poppins', sans-serif !important;
+    }
+    
+    .stTextInput > div > div > input::placeholder {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+    
+    /* Metric styling */
+    .metric-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    [data-testid="metric-container"] > div {
+        color: white !important;
+    }
+    
+    /* Success message styling */
+    .stSuccess {
+        background: linear-gradient(45deg, #56CCF2, #2F80ED) !important;
+        color: white !important;
+        border-radius: 15px !important;
+        border: none !important;
+    }
+    
+    /* Info message styling */
+    .stInfo {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px) !important;
+        color: white !important;
+        border-radius: 15px !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    /* Markdown text in glassmorphism containers */
+    .glass-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 1rem 0;
+        color: white;
+    }
+    
+    /* Hide hamburger menu and footer */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
@@ -494,7 +529,7 @@ def generate_bingo_card():
         row = []
         for j in range(5):
             if i == 2 and j == 2:  # Center square
-                row.append("🎉 FREE SPACE! 🎉")
+                row.append("FREE SPACE! 🎉")
             else:
                 row.append(selected_phrases[phrase_index])
                 phrase_index += 1
@@ -533,57 +568,56 @@ def check_bingo(marked_cells):
     
     return False
 
-# Main app with cool header
-st.markdown('<h1 class="main-header">🎯 Friday Fun Remote Work Bingo! 🎉</h1>', unsafe_allow_html=True)
+# Main app
+st.markdown('<div class="main-header">', unsafe_allow_html=True)
+st.title("🎯 Friday Fun Remote Work Bingo!")
+st.markdown('<p class="subtitle">✨ The ultimate remote work experience bingo game ✨</p>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
-# Game container
-st.markdown('<div class="game-container">', unsafe_allow_html=True)
-
-# Player section
-st.markdown('<div class="player-section">', unsafe_allow_html=True)
-col1, col2 = st.columns([3, 2])
+# Game setup
+st.markdown('<div class="glass-container">', unsafe_allow_html=True)
+col1, col2 = st.columns([2, 1])
 
 with col1:
-    st.markdown("### 🚀 Welcome to the Ultimate Remote Work Comedy!")
-    st.markdown("**Check off squares as you experience these hilarious remote work moments!**")
+    st.markdown("### 🎮 Welcome to the Ultimate Remote Work Bingo!")
+    st.markdown("Check off squares as you experience these hilarious remote work moments throughout your day!")
 
 with col2:
-    player_name = st.text_input("🎮 Enter your player name:", value=st.session_state.player_name, placeholder="Your awesome name here...")
+    player_name = st.text_input("🏷️ Enter your name:", value=st.session_state.player_name, placeholder="Your awesome name here...")
     if player_name:
         st.session_state.player_name = player_name
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Control buttons with cool styling
-col_a, col_b, col_c, col_d = st.columns([1, 1, 1, 1])
+# Generate new card button
+st.markdown('<br>', unsafe_allow_html=True)
+col_a, col_b, col_c = st.columns([1, 1, 2])
 with col_a:
-    if st.button("🎲 Generate New Card", type="primary", help="Get a fresh, random bingo card!"):
+    if st.button("🎲 Generate New Card", type="primary", help="Create a brand new bingo card!"):
         st.session_state.bingo_card = generate_bingo_card()
         st.session_state.marked_cells = {(2, 2)}  # Mark center as free
         st.session_state.game_started = True
         st.rerun()
 
 with col_b:
-    if st.button("🔄 Reset Game", help="Clear all your marks and start over"):
+    if st.button("🔄 Reset Game", help="Clear all marked squares and start fresh!"):
         st.session_state.marked_cells = {(2, 2)} if st.session_state.bingo_card else set()
         st.rerun()
 
-with col_c:
-    if st.button("🎊 Celebrate", help="Feel good about your progress!"):
-        st.balloons()
-
 # Display the bingo card
 if st.session_state.bingo_card:
-    # Player's card header
+    st.markdown('<br><div class="bingo-card">', unsafe_allow_html=True)
     if st.session_state.player_name:
-        st.markdown(f'<div style="text-align: center; font-size: 2rem; font-weight: 600; color: #667eea; margin: 2rem 0;">🎮 {st.session_state.player_name}\'s Bingo Card</div>', unsafe_allow_html=True)
+        st.markdown(f"### 🎮 {st.session_state.player_name}'s Bingo Card")
     else:
-        st.markdown('<div style="text-align: center; font-size: 2rem; font-weight: 600; color: #667eea; margin: 2rem 0;">🎮 Your Bingo Card</div>', unsafe_allow_html=True)
+        st.markdown("### 🎮 Your Epic Bingo Card")
     
-    # Create the bingo card grid with custom styling
+    st.markdown('<br>', unsafe_allow_html=True)
+    
+    # Create the bingo card grid
     card = st.session_state.bingo_card
     
-    # Display the card with enhanced UI
+    # Display the card with modern styling
     for i in range(5):
         cols = st.columns(5)
         for j in range(5):
@@ -594,14 +628,14 @@ if st.session_state.bingo_card:
                 # Style based on whether it's marked
                 if is_marked:
                     if i == 2 and j == 2:  # Free space
-                        button_label = f"✨ {card[i][j]} ✨"
-                        button_type = "secondary"
+                        button_label = f"✨ FREE SPACE! ✨"
+                        button_class = "free-space"
                     else:
                         button_label = f"✅ {card[i][j]}"
-                        button_type = "secondary"
+                        button_class = "marked-cell"
                 else:
                     button_label = card[i][j]
-                    button_type = "primary"
+                    button_class = ""
                 
                 # Create button with enhanced styling
                 if st.button(
@@ -609,8 +643,7 @@ if st.session_state.bingo_card:
                     key=f"cell_{i}_{j}",
                     help=f"Click to {'unmark' if is_marked and (i,j) != (2,2) else 'mark'} this square",
                     disabled=(i == 2 and j == 2),  # Free space is always marked
-                    use_container_width=True,
-                    type=button_type
+                    use_container_width=True
                 ):
                     if (i, j) in st.session_state.marked_cells and (i, j) != (2, 2):
                         st.session_state.marked_cells.remove((i, j))
@@ -618,102 +651,55 @@ if st.session_state.bingo_card:
                         st.session_state.marked_cells.add((i, j))
                     st.rerun()
     
-    # Check for bingo with celebration
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Check for bingo
     if check_bingo(st.session_state.marked_cells):
-        st.markdown('<div class="celebration pulse">', unsafe_allow_html=True)
-        st.markdown("# 🏆 BINGO! YOU'RE THE CHAMPION! 🏆")
-        if st.session_state.player_name:
-            st.markdown(f"## 🎊 Congratulations {st.session_state.player_name}! 🎊")
-        st.markdown("### 🌟 Share your epic victory with your team! 🌟")
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.success("🎉 BINGO! You absolutely crushed it! 🎉")
         st.balloons()
+        if st.session_state.player_name:
+            st.markdown(f"### 🏆 Congratulations {st.session_state.player_name}! You're the BINGO Champion! 🏆")
+        st.markdown("### 🎊 Share your epic victory with your team! 🎊")
     
-    # Game stats with cool styling
+    # Game stats with modern styling
+    st.markdown('<br>', unsafe_allow_html=True)
     marked_count = len(st.session_state.marked_cells)
-    completion_percent = (marked_count / 25) * 100
-    
-    st.markdown('<div class="stats-container">', unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("🎯 Squares Marked", marked_count, delta=None)
     with col2:
-        st.metric("⏳ Remaining", 25 - marked_count, delta=None)
+        st.metric("⏳ Squares Remaining", 25 - marked_count, delta=None)
     with col3:
-        st.metric("📊 Progress", f"{completion_percent:.1f}%", delta=None)
-    st.markdown('</div>', unsafe_allow_html=True)
-    
-    # Progress bar
-    progress_bar = st.progress(completion_percent / 100)
+        completion_percent = (marked_count / 25) * 100
+        st.metric("📊 Completion", f"{completion_percent:.1f}%", delta=None)
 
 else:
-    # Welcome section when no card is generated
+    st.markdown('<div class="glass-container">', unsafe_allow_html=True)
+    st.info("👆 Click 'Generate New Card' to start your epic bingo adventure!")
+    st.markdown("### 🎯 How to Play:")
     st.markdown("""
-    <div style="text-align: center; padding: 3rem; background: linear-gradient(135deg, #FF9A8B 0%, #A8E6CF 100%); border-radius: 20px; margin: 2rem 0;">
-        <h2 style="color: white; margin-bottom: 2rem;">🎯 Ready to Play?</h2>
-        <p style="color: white; font-size: 1.2rem; margin-bottom: 2rem;">Click "Generate New Card" above to start your hilarious remote work adventure!</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # How to play section
-    st.markdown("""
-    <div style="background: rgba(255,255,255,0.9); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
-        <h3 style="color: #667eea; text-align: center; margin-bottom: 2rem;">🎮 How to Play</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1rem; border-radius: 10px; text-align: center;">
-                <h4>1. 🎲 Generate</h4>
-                <p>Get your unique bingo card with funny remote work scenarios</p>
-            </div>
-            <div style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4); color: white; padding: 1rem; border-radius: 10px; text-align: center;">
-                <h4>2. ✅ Mark</h4>
-                <p>Click squares when you experience those moments</p>
-            </div>
-            <div style="background: linear-gradient(135deg, #45B7D1, #96CEB4); color: white; padding: 1rem; border-radius: 10px; text-align: center;">
-                <h4>3. 🏆 Win</h4>
-                <p>Get 5 in a row and celebrate your victory!</p>
-            </div>
-            <div style="background: linear-gradient(135deg, #A8E6CF, #DCEDC8); color: #333; padding: 1rem; border-radius: 10px; text-align: center;">
-                <h4>4. 🎊 Share</h4>
-                <p>Screenshot and share with your team for maximum fun!</p>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    1. **🎲 Generate** a new bingo card with random remote work scenarios
+    2. **✅ Mark squares** by clicking on them when you experience those moments
+    3. **🏆 Get 5 in a row** (horizontal, vertical, or diagonal) to win!
+    4. **📢 Share** your victories with your team
+    5. **🎉 Have fun** and bond over shared remote work experiences!
+    """)
+    st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)  # Close game container
-
-# Team play tips with modern styling
+# Footer with modern styling
+st.markdown('<br>', unsafe_allow_html=True)
+st.markdown('<div class="glass-container">', unsafe_allow_html=True)
+st.markdown("### 🚀 Pro Tips for Epic Team Play:")
 st.markdown("""
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 20px; margin: 2rem 0;">
-    <h3 style="text-align: center; margin-bottom: 2rem;">🎯 Pro Tips for Epic Team Play</h3>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
-        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; backdrop-filter: blur(10px);">
-            <h4>📸 Share Screenshots</h4>
-            <p>Post your cards in team chat for friendly competition!</p>
-        </div>
-        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; backdrop-filter: blur(10px);">
-            <h4>📢 Call Out Moments</h4>
-            <p>Announce when you mark a square during meetings</p>
-        </div>
-        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; backdrop-filter: blur(10px);">
-            <h4>🏆 Bragging Rights</h4>
-            <p>First to BINGO gets to be team champion!</p>
-        </div>
-        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 10px; backdrop-filter: blur(10px);">
-            <h4>🔄 Multiple Rounds</h4>
-            <p>Generate new cards for endless entertainment</p>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+- **📸 Share screenshots** of your cards in team chat
+- **📢 Call out** when you mark a square during meetings  
+- **🥇 First to BINGO** gets ultimate bragging rights!
+- **⏰ Play throughout the day** and see who completes their card first
+- **🎲 Generate new cards** for multiple epic rounds
+- **🎊 Celebrate victories** with your remote team family!
+""")
+st.markdown('</div>', unsafe_allow_html=True)
 
-# Footer with floating animation
-st.markdown("""
-<div class="floating" style="text-align: center; padding: 2rem; margin-top: 3rem; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
-    <p style="color: white; font-size: 1.1rem; margin: 0;">
-        Made with ❤️ and lots of ☕ for remote teams who know the struggle is real! 
-    </p>
-    <p style="color: rgba(255,255,255,0.8); margin-top: 0.5rem;">
-        🎮 Game on, remote warriors! 🎮
-    </p>
-</div>
-""", unsafe_allow_html=True)
+st.markdown('<div class="glass-container" style="text-align: center; margin-top: 2rem;">', unsafe_allow_html=True)
+st.markdown("*✨ Crafted with ❤️ for remote teams who know the struggle is beautifully real! ✨*")
+st.markdown('</div>', unsafe_allow_html=True)
